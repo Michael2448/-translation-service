@@ -1,0 +1,91 @@
+html {
+	box-sizing: border-box; /*атрибут для изм-я размера блоков, его значение - чтобы размеры блока уже включали в себя высоту и ширину, но не включали margin*/
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit; /*видимо чтобы все элементы наследовали свойства атрибута размеров у родителя?*/
+}
+
+body {
+	min-width: 1000px; /*задаем мин. ширину для появления ползунка (когда сжимают окно менее этого значения)*/
+	margin: 0; /*обнуляем границы, установленные по умолчанию. Кстати это же лишнее, у меня же в normalize это уже сделано?*/
+	background-color: #f9f9f9; /*цвет фона*/
+	font-family: "Calibri",sans-serif; /*семейство шрифтов*/
+	font-size: 20px; /*размер шрифта по умолчанию для body*/
+	line-height: 20px;/*задает высоту строки текста*/
+	color: black; /*цвет текста*/
+}
+
+body.modal-active {
+	overflow: hidden; /*К сожалению, не нашел что такое .modal-active, это просто класс?*/
+}                     /*Отображение области внутри элемента, остальное скрывается*/
+
+img {
+	max-width: 100%; /*ну смысл понятен - макс. ширина, но он тут видимо в каком-то контексте, суть которого мне пока неясна*/
+}
+
+a {
+	text-decoration: none; /*отмена всех эффектов в т.ч. подчеркивания*/
+	color: inherit; /*наследование свойства у родителя*/
+}
+
+
+.visually-hidden {
+	position: absolute !important;               /*др. элементы отображ-ся словно этого элемента нет. Important - для задания приоритета в случае противоречивости стилей*/
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px); /*задание области элемента, которая будет видна*/
+	padding:0 !important; /*внутренние отступы, границы и размеры*/
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden; /**/
+}
+
+.clearfix::after { /*распорка чтобы колонки с флоатом не выпадали из родителя*/
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.fixed-container {
+	border: 1px black solid;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	width: 800px;
+	background-color: #7eb0f7;
+}
+.header {
+	margin: 30px 0 30px 260px;
+	font-size: 28px;
+}
+
+.word-for-translate {
+	margin: 30px;
+	width: 740px;
+	height: 30px;
+	font-size: 20px;
+}
+.translate {
+	margin: 30px;
+	width: 740px;
+	min-height: 30px;
+	font-size: 20px;
+	background-color: white;
+}
+.list-input-lang {
+	margin: 0 0 30px 30px;
+}
+.lang-input-label {
+	margin: 0 0 10px 30px;
+}
+.list-output-lang {
+	margin: 0 0 30px 83px;
+}
+.lang-output-label {
+	margin: 0 0 0 30px;
+}
+.btn-translate {
+	margin: 0 0 0 30px;
+}
